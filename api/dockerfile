@@ -1,0 +1,14 @@
+FROM node:latest
+
+RUN apt-get update
+
+WORKDIR /app
+
+COPY . /app
+
+
+RUN yarn install
+
+EXPOSE 3000
+
+CMD yarn start 
