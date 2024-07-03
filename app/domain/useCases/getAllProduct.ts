@@ -14,6 +14,7 @@ export class UseGetAllProduct<OKType, ErrorType> {
   async execute() {
     try {
       const products = await this.repository.getProducts();
+      console.log("Products:", products);
       return this.presenter.ok(products);
     } catch (error) {
       return this.presenter.invalid();

@@ -16,3 +16,10 @@ export const Article = ({
   description,
   image,
 });
+
+export type TArticle = {
+  name: string;
+  price: number;
+  color: string;
+  description: string;
+};
