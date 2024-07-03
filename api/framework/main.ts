@@ -27,6 +27,7 @@ app.post("/initChat", async (req, res) => {
   };
 
   const input: string = body.message;
+  const image: string = body.image_url;
 
   await new createChat(repo, ollama, {
     async ok(response: { id: number; message: Message }) {
@@ -35,7 +36,7 @@ app.post("/initChat", async (req, res) => {
     async invalid() {
       res.status(400).send("Invalid");
     },
-  }).execute(input, article);
+  }).execute(input, image, article);
 });
 
 app.post("/randomChat", async (req, res) => {
