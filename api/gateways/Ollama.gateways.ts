@@ -5,7 +5,9 @@ export interface IOllamaGateway {
   promptMessage(conversation: ThreadConversation): Promise<Message>;
 }
 
-const ollama = new Ollama({ host: "http://ollama:11434" });
+const ollama = new Ollama({
+  host: "http://10.0.13.253:11434",
+});
 export class OllamaGateway implements IOllamaGateway {
   async promptMessage(conversation: ThreadConversation): Promise<Message> {
     let modelIa: string = "llama3";
