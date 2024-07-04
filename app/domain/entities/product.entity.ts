@@ -18,6 +18,8 @@ export const Article = ({
 });
 
 export type TArticle = {
+  id: number;
+  image: string;
   name: string;
   price: number;
   color: string;

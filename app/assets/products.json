@@ -3,21 +3,24 @@
         "id": 1,
         "name": "Product 1",
         "price": 100,
-        "descripiton": "Product 1 description",
-        "image": "lol"
+        "image": "/Users/killian/Documents/Perso/Plugz4r/app/assets/images/dn.jpeg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "color": "red1"
     },
     {
         "id": 2,
         "name": "Product 2",
         "price": 200,
-        "descripiton": "Product 2 description",
-        "image": "lol"
+        "image": "/Users/killian/Documents/Perso/Plugz4r/app/assets/images/dn.jpeg",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "color": "red2"
     },
     {
         "id": 3,
         "name": "Product 3",
         "price": 300,
-        "descripiton": "Product 3 description",
-        "image": "lol"
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "/Users/killian/Documents/Perso/Plugz4r/app/assets/images/dn.jpeg",
+        "color": "red3"
     }
 ]

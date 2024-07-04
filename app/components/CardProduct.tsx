@@ -1,33 +1,48 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import { TArticle } from "@/domain/entities/product.entity";
 
-interface CardProductProps {
-  article: TArticle;
-  onPress: () => void;
-}
-
-const CardProduct: React.FC<CardProductProps> = ({ article, onPress }) => {
+export default function CardProduct({ article }: { article: TArticle }) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <View>
-        <Text>{article.name}</Text>
-        <Text>{article.price}</Text>
-        <Text>{article.color}</Text>
-        <Text>{article.description}</Text>
+    <View style={styles.card}>
+      <Image
+        source={{ uri: article.image }}
+        style={styles.image} // Appliquer le style à l'image
+        onError={() => console.log("Failed to load image")}
+      />
+      <Text>{article.name}</Text>
+      <View style={styles.inline}>
+        <Text>A partir de </Text>
+        <View>
+          <Text style={styles.price}>{article.price}€</Text>
+        </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   card: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#808080",
+    borderRadius: 8,
+    height: 200,
     padding: 10,
-    margin: 10,
-    borderRadius: 5,
+    marginRight: 10,
+    alignItems: "center", // Centrer le contenu horizontalement
+    justifyContent: "center", // Centrer le contenu verticalement
+  },
+  image: {
+    width: 100,
+    height: 100,
+    resizeMode: "contain", // Assurer que l'image reste dans ses dimensions
+  },
+  inline: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  price: {
+    fontWeight: "bold",
   },
 });
-
-export default CardProduct;
