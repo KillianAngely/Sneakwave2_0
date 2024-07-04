@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Message } from "@/domain/entities/chat.entity";
+import { Link, router } from "expo-router";
 
 type InputType = string;
 
@@ -28,14 +29,25 @@ const useChat = () => {
         image_url: null,
       };
 
-      // Simuler la réponse du chatbot
-      const newMessageBot: Message = {
-        user: "assistant",
-        text_content: `Réponse automatique à "${input}"`,
-        image_url: null,
-      };
+      // Vérifier si le message utilisateur contient "vous avez d'autres articles en boutique ?"
+      if (
+        input
+          .toLowerCase()
+          .includes("vous avez d'autres articles en boutique ?")
+      ) {
+        // Rediriger vers la page showroom
+        router.push("/showRoom");
+      } else {
+        // Simuler la réponse du chatbot
+        const newMessageBot: Message = {
+          user: "assistant",
+          text_content: `Réponse automatique à "${input}"`,
+          image_url: null,
+        };
 
-      setConversation([...conversation, newMessageUser, newMessageBot]);
+        setConversation([...conversation, newMessageUser, newMessageBot]);
+      }
+
       setInput(""); // Réinitialiser l'input après l'envoi du message
       setLoading(false); // Fin du chargement
     }, 1000); // Simuler un délai pour la réponse du service

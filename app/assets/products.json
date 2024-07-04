@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Product 1",
         "price": 100,
-        "image": "/Users/killian/Documents/Perso/Plugz4r/app/assets/images/dn.jpeg",
+        "image": "dn.jpeg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
         "color": "red1"
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "name": "Product 2",
         "price": 200,
-        "image": "/Users/killian/Documents/Perso/Plugz4r/app/assets/images/dn.jpeg",
+        "image": "dn.jpeg",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
         "color": "red2"
     },
@@ -20,7 +20,7 @@
         "name": "Product 3",
         "price": 300,
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
-        "image": "/Users/killian/Documents/Perso/Plugz4r/app/assets/images/dn.jpeg",
+        "image": "dn.jpeg",
         "color": "red3"
     }
 ]

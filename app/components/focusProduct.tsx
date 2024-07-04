@@ -25,7 +25,10 @@ export default function FocusProduct({ article }: { article: TArticle }) {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView style={styles.safeArea}>
         <ScrollView style={styles.container}>
-          <Image source={{ uri: article.image }} style={styles.image} />
+          <Image
+            source={require("./assets/images/your-image.jpg")}
+            style={styles.image}
+          />
           <View style={styles.containerChatBot}>
             <Text style={styles.subtittleChatBot}>Chatbot AI</Text>
             <Pressable
