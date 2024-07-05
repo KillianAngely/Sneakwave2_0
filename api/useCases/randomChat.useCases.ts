@@ -20,7 +20,7 @@ export class randomChat<OKType, ErrorType> {
       chat.addMessageUser(message);
       await this.repository.saveChat(chat);
       const conversation = chat.toDto();
-      console.log(conversation);
+      console.log(conversation.messages);
       const message_ia = await this.gateway.promptMessage(conversation);
       chat.addMessageIa(message_ia.text_content);
       await this.repository.saveChat(chat);
