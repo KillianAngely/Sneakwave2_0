@@ -10,6 +10,7 @@ const useChat = (product: Article) => {
   const [input, setInput] = useState<InputType>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [article, setArticle] = useState<Article | undefined>(product);
+  const [timeout, setTimeoutState] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     return () => {
@@ -17,28 +18,37 @@ const useChat = (product: Article) => {
       setId(0);
       setInput("");
       setLoading(false);
+      if (timeout) {
+        clearTimeout(timeout);
+      }
     };
-  }, []);
+  }, [timeout]);
 
   const sendMessage = async () => {
+    if (input.trim() === "" || loading) return;
+
     setLoading(true);
 
-    try {
-      const UserMessageUser: Message = {
-        user: "user",
-        text_content: input,
-      };
+    const userMessage: Message = {
+      user: "user",
+      text_content: input,
+    };
 
-      let newMessageBot: Message;
+    setConversation((prevConversation) => [...prevConversation, userMessage]);
+
+    setInput("");
+
+    try {
+      let botMessage: Message;
 
       if (id === 0) {
         const newChatMessage = await createChat(product, input);
         if (newChatMessage instanceof Error) {
           throw newChatMessage;
         }
-        newMessageBot = {
-          user: newChatMessage.user,
-          text_content: newChatMessage.text_content,
+        botMessage = {
+          user: newChatMessage.message.user,
+          text_content: newChatMessage.message.text_content,
         };
         setId(newChatMessage.id);
       } else {
@@ -49,15 +59,18 @@ const useChat = (product: Article) => {
         if (randomMessage instanceof Error) {
           throw randomMessage;
         }
-        newMessageBot = {
+        botMessage = {
           user: randomMessage.user,
           text_content: randomMessage.text_content,
         };
       }
 
-      setConversation([...conversation, UserMessageUser, newMessageBot]);
-      setInput("");
-      setLoading(false);
+      setConversation((prevConversation) => [...prevConversation, botMessage]);
+
+      // const newTimeout = setTimeout(() => {
+      //   setLoading(false);
+      // }, 1000);
+      // setTimeoutState(newTimeout);
     } catch (error) {
       console.error("Error sending message:", error);
       setLoading(false); // Make sure to set loading to false on error
