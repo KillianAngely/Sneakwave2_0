@@ -3,8 +3,6 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { Article } from "../../api/entity/chat.entity";
 
 export default function CardProduct({ article }: { article: Article }) {
-  console.log(article);
-
   if (!article.image_url) {
     article.image_url =
       "https://static.vecteezy.com/system/resources/thumbnails/005/720/408/small_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg";

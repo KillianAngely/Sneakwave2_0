@@ -50,7 +50,6 @@ app.post("/randomChat", async (req, res) => {
 
   const id = body.id;
   const message = body.text_content;
-  const Image = body.image_url;
 
   try {
     await new randomChat(repo, ollama, {

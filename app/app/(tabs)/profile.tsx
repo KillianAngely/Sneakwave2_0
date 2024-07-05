@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 export default function Tab() {
   return (
     <View style={styles.container}>
-      <Text>Profile</Text>
+      <Text>Connexion</Text>
     </View>
   );
 }

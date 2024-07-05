@@ -32,8 +32,7 @@ export default function ListProduct() {
   }, []);
 
   const handleSearch = () => {
-    // Ajoutez votre logique de recherche ici
-    console.log("Searching for:", searchQuery);
+    alert("filtre produit");
   };
 
   if (!products || products.length === 0) {
@@ -65,7 +64,7 @@ export default function ListProduct() {
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={products.reverse()}
+            data={products.sort((a, b) => b.id - a.id).slice(0, 20)}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
               <Link

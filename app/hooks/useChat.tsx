@@ -10,7 +10,6 @@ const useChat = (product: Article) => {
   const [input, setInput] = useState<InputType>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [article, setArticle] = useState<Article | undefined>(product);
-  const [timeout, setTimeoutState] = useState<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     return () => {
@@ -18,11 +17,8 @@ const useChat = (product: Article) => {
       setId(0);
       setInput("");
       setLoading(false);
-      if (timeout) {
-        clearTimeout(timeout);
-      }
     };
-  }, [timeout]);
+  }, []);
 
   const sendMessage = async () => {
     if (input.trim() === "" || loading) return;
@@ -66,14 +62,10 @@ const useChat = (product: Article) => {
       }
 
       setConversation((prevConversation) => [...prevConversation, botMessage]);
-
-      // const newTimeout = setTimeout(() => {
-      //   setLoading(false);
-      // }, 1000);
-      // setTimeoutState(newTimeout);
     } catch (error) {
       console.error("Error sending message:", error);
-      setLoading(false); // Make sure to set loading to false on error
+    } finally {
+      setLoading(false);
     }
   };
 

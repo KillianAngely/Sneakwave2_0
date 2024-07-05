@@ -12,14 +12,13 @@ export class OllamaGateway implements IOllamaGateway {
   async promptMessage(conversation: ThreadConversation): Promise<Message> {
     let modelIa: string = "llama3";
     let prompt: any;
-    if (!conversation.messages[conversation.messages.length - 1].image_url) {
+    if (!conversation.messages[conversation.messages.length - 1]) {
       prompt = [
         {
           role: "user",
           messages: conversation.messages.map((msg) => ({
             user: msg.user,
             content: msg.text_content,
-            image_url: msg.image_url,
           })),
         },
       ];
@@ -31,10 +30,8 @@ export class OllamaGateway implements IOllamaGateway {
           messages: conversation.messages.map((msg) => ({
             user: msg.user,
             content: msg.text_content,
-            image_url: msg.image_url,
           })),
-          image:
-            conversation.messages[conversation.messages.length - 1].image_url,
+          image: conversation.messages[conversation.messages.length - 1],
         },
       ];
     }
@@ -54,7 +51,6 @@ export class OllamaGateway implements IOllamaGateway {
     const Iamessage: Message = {
       user: "assistant",
       text_content: response.message.content,
-      image_url: null,
     };
     return Iamessage;
   }

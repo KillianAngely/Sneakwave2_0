@@ -30,6 +30,7 @@ export async function createChat(article: Article, messages: string) {
 }
 
 export async function randomChat(id: number, messages: Message) {
+  console.log("randomChat", id, messages);
   try {
     const response = await fetch("http://localhost:3000/randomChat", {
       method: "POST",
@@ -38,7 +39,7 @@ export async function randomChat(id: number, messages: Message) {
       },
       body: JSON.stringify({
         id: id,
-        messages: messages,
+        text_content: messages,
       }),
     });
 
