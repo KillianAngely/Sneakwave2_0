@@ -28,11 +28,6 @@ app.post("/initChat", async (req, res) => {
   };
 
   const input: string = body.message;
-  const image: string = body.image_url;
-
-  if (!image) {
-    return res.status(400).send("Invalid");
-  }
   if (!input) {
     return res.status(400).send("Invalid");
   }
@@ -47,7 +42,7 @@ app.post("/initChat", async (req, res) => {
     async invalid() {
       res.status(400).send("Invalid");
     },
-  }).execute(input, image, article);
+  }).execute(input, article);
 });
 
 app.post("/randomChat", async (req, res) => {
@@ -68,7 +63,6 @@ app.post("/randomChat", async (req, res) => {
     }).execute(id, {
       user: "user",
       text_content: message,
-      image_url: Image,
     });
   } catch (err) {
     return res.status(500).send("Internal Server Error");

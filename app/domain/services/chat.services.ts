@@ -1,5 +1,6 @@
-// init a chat with api
-export async function createChat(article: any, messages: any, image_url: any) {
+import { Article, Message } from "../../../api/entity/chat.entity";
+
+export async function createChat(article: Article, messages: string) {
   try {
     const response = await fetch("http://localhost:3000/initChat", {
       method: "POST",
@@ -11,20 +12,24 @@ export async function createChat(article: any, messages: any, image_url: any) {
         price: article.price,
         color: article.color,
         description: article.description,
-        messages: messages,
-        image_url: image_url,
+        image_url: article.image_url,
+        message: messages,
       }),
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const result = await response.json();
     return result;
   } catch (error) {
+    console.error("Error in createChat:", error);
     return error;
   }
 }
 
-// random chat with api
-
-export async function randomChat(id: any, messages: any, image_url: any) {
+export async function randomChat(id: number, messages: Message) {
   try {
     const response = await fetch("http://localhost:3000/randomChat", {
       method: "POST",
@@ -34,12 +39,17 @@ export async function randomChat(id: any, messages: any, image_url: any) {
       body: JSON.stringify({
         id: id,
         messages: messages,
-        image_url: image_url,
       }),
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const result = await response.json();
     return result;
   } catch (error) {
+    console.error("Error in randomChat:", error);
     return error;
   }
 }

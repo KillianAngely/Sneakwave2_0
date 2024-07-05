@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Product 1",
         "price": 100,
-        "image": "dn.jpeg",
+        "image": "https://i8.amplience.net/i/jpl/fp_700055_a?qlt=92&w=950&h=735&v=1&fmt=auto",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
         "color": "red1"
     },
@@ -11,16 +11,112 @@
         "id": 2,
         "name": "Product 2",
         "price": 200,
-        "image": "dn.jpeg",
+        "image": "https://www.copncop.com/1223-large_default/air-jordan-4-canyon-purple.webp",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
-        "color": "red2"
+        "color": "couleur"
     },
     {
         "id": 3,
         "name": "Product 3",
         "price": 300,
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
-        "image": "dn.jpeg",
-        "color": "red3"
+        "image": "https://graalspotter.com/cdn/shop/products/adidas-yeezy-foam-rnnr-onyx-graal-spotter-1.png?v=1677064522&width=700",
+        "color": "couleur"
+    },
+    {
+        "id": 4,
+        "name": "Product 4",
+        "price": 400,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 5,
+        "name": "Product 5",
+        "price": 300,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 6,
+        "name": "Product 6",
+        "price": 300,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 7,
+        "name": "Product 7",
+        "price": 500,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 8,
+        "name": "Product 8",
+        "price": 400,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 9,
+        "name": "Product 9",
+        "price": 300,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 10,
+        "name": "Product 10",
+        "price": 400,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 11,
+        "name": "Product 11",
+        "price": 600,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 12,
+        "name": "Product 12",
+        "price": 500,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 13,
+        "name": "Product 13",
+        "price": 700,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 14,
+        "name": "Product 14",
+        "price": 800,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
+    },
+    {
+        "id": 15,
+        "name": "Product 14",
+        "price": 900,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui.",
+        "image": "empty",
+        "color": "couleur"
     }
 ]

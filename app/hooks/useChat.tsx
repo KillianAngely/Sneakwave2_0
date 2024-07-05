@@ -1,59 +1,70 @@
 import React, { useState, useEffect } from "react";
-import { Message } from "@/domain/entities/chat.entity";
-import { Link, router } from "expo-router";
+import { Article, Message } from "../../api/entity/chat.entity";
+import { createChat, randomChat } from "@/domain/services/chat.services";
 
 type InputType = string;
 
-const useChat = () => {
+const useChat = (product: Article) => {
   const [conversation, setConversation] = useState<Message[]>([]);
+  const [id, setId] = useState<number>(0);
   const [input, setInput] = useState<InputType>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [article, setArticle] = useState<Article | undefined>(product);
 
   useEffect(() => {
-    // Effet de nettoyage lorsque le composant est démonté (quand l'utilisateur quitte la page ou revient en arrière)
     return () => {
-      setConversation([]); // Réinitialiser la conversation
-      setInput(""); // Réinitialiser l'input
-      setLoading(false); // Arrêter le chargement
+      setConversation([]);
+      setId(0);
+      setInput("");
+      setLoading(false);
     };
   }, []);
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     setLoading(true);
 
-    // Simuler l'envoi du message au service et la gestion de la réponse
-    setTimeout(() => {
-      const newMessageUser: Message = {
+    try {
+      const UserMessageUser: Message = {
         user: "user",
         text_content: input,
-        image_url: null,
       };
 
-      // Vérifier si le message utilisateur contient "vous avez d'autres articles en boutique ?"
-      if (
-        input
-          .toLowerCase()
-          .includes("vous avez d'autres articles en boutique ?")
-      ) {
-        // Rediriger vers la page showroom
-        router.push("/showRoom");
-      } else {
-        // Simuler la réponse du chatbot
-        const newMessageBot: Message = {
-          user: "assistant",
-          text_content: `Réponse automatique à "${input}"`,
-          image_url: null,
-        };
+      let newMessageBot: Message;
 
-        setConversation([...conversation, newMessageUser, newMessageBot]);
+      if (id === 0) {
+        const newChatMessage = await createChat(product, input);
+        if (newChatMessage instanceof Error) {
+          throw newChatMessage;
+        }
+        newMessageBot = {
+          user: newChatMessage.user,
+          text_content: newChatMessage.text_content,
+        };
+        setId(newChatMessage.id);
+      } else {
+        const randomMessage = await randomChat(id, {
+          user: "user",
+          text_content: input,
+        });
+        if (randomMessage instanceof Error) {
+          throw randomMessage;
+        }
+        newMessageBot = {
+          user: randomMessage.user,
+          text_content: randomMessage.text_content,
+        };
       }
 
-      setInput(""); // Réinitialiser l'input après l'envoi du message
-      setLoading(false); // Fin du chargement
-    }, 1000); // Simuler un délai pour la réponse du service
+      setConversation([...conversation, UserMessageUser, newMessageBot]);
+      setInput("");
+      setLoading(false);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setLoading(false); // Make sure to set loading to false on error
+    }
   };
 
-  return { conversation, input, loading, sendMessage, setInput };
+  return { conversation, input, loading, sendMessage, setInput, setArticle };
 };
 
 export default useChat;

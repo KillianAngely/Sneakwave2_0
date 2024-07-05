@@ -1,11 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import { TArticle } from "@/domain/entities/product.entity";
-export default function CardProduct({ article }: { article: TArticle }) {
+import { Article } from "../../api/entity/chat.entity";
+
+export default function CardProduct({ article }: { article: Article }) {
+  console.log(article);
+
+  if (!article.image_url) {
+    article.image_url =
+      "https://static.vecteezy.com/system/resources/thumbnails/005/720/408/small_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg";
+  }
   return (
     <View style={styles.card}>
       <Image
-        source={require("./assets/images/dn.jpeg")}
+        source={{ uri: article.image_url }}
         style={styles.image}
         onError={() => {
           console.log("Image not found");

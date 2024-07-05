@@ -14,10 +14,10 @@ export class createChat<OKType, ErrorType> {
     private readonly presenter: ICreateChat<OKType, ErrorType>
   ) {}
 
-  async execute(input: string, image: string, article: Article) {
+  async execute(input: string, article: Article) {
     const id = Math.floor(Math.random() * 1000);
     const chat = Chat.instantiate(id, article, [
-      { user: "user", text_content: input, image_url: image },
+      { user: "user", text_content: input },
     ]);
     await this.repository.saveChat(chat);
     const conversation = chat.toDto();

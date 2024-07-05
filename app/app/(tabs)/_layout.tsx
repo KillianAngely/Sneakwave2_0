@@ -28,7 +28,7 @@ export default function TabLayout() {
         name="cart"
         options={{
           headerShown: false,
-          title: "Pannier",
+          title: "Panier",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="shopping-basket" color={color} />
           ),

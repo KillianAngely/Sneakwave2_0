@@ -9,26 +9,28 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
-import { TArticle } from "@/domain/entities/product.entity";
 import { Link, router } from "expo-router";
 import SubTittleDisplay from "./SubTittleDisplay";
 import { FlatList } from "react-native-gesture-handler";
 import "react-native-gesture-handler";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { Article } from "../../api/entity/chat.entity";
 
-export default function FocusProduct({ article }: { article: TArticle }) {
+export default function FocusProduct({ article }: { article: Article }) {
   const [quantity, setQuantity] = useState(1);
 
   const sizes = ["36", "37", "38", "39", "40", "41", "42", "43", "44"];
+
+  if (!article.image_url) {
+    article.image_url =
+      "https://static.vecteezy.com/system/resources/thumbnails/005/720/408/small_2x/crossed-image-icon-picture-not-available-delete-picture-symbol-free-vector.jpg";
+  }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView style={styles.safeArea}>
         <ScrollView style={styles.container}>
-          <Image
-            source={require("./assets/images/your-image.jpg")}
-            style={styles.image}
-          />
+          <Image source={{ uri: article.image_url }} style={styles.image} />
           <View style={styles.containerChatBot}>
             <Text style={styles.subtittleChatBot}>Chatbot AI</Text>
             <Pressable
@@ -37,7 +39,7 @@ export default function FocusProduct({ article }: { article: TArticle }) {
                 router.push({
                   pathname: "/chat",
                   params: {
-                    image: article.image,
+                    image: article.image_url,
                     name: article.name,
                     price: article.price,
                     color: article.color,

@@ -9,7 +9,6 @@ export type Article = {
 export type Message = {
   user: "user" | "assistant";
   text_content: string;
-  image_url: string | null;
 };
 
 export type ThreadConversation = {
@@ -33,7 +32,6 @@ export class Chat {
     const chatMessage: Message = {
       user: "user",
       text_content: message.text_content,
-      image_url: message.image_url,
     };
     this.messages.push(chatMessage);
   }
@@ -42,7 +40,6 @@ export class Chat {
     const chatMessage: Message = {
       user: "assistant",
       text_content: message,
-      image_url: null,
     };
     this.messages.push(chatMessage);
   }
@@ -52,10 +49,9 @@ export class Chat {
       id: this.id,
       artcile: this.artcile,
 
-      messages: this.messages.map(({ user, text_content, image_url }) => ({
+      messages: this.messages.map(({ user, text_content }) => ({
         user,
         text_content,
-        image_url,
       })),
     };
     return conv;

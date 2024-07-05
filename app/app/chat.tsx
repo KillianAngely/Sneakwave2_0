@@ -11,15 +11,25 @@ import {
 import { useEffect, useState } from "react";
 import TittleDisplay from "@/components/TitleDisplay";
 import ChatComponent from "@/components/ChatComponent";
+import { Article } from "../../api/entity/chat.entity";
 
 export default function ChatScreen() {
   const { image, name, price, color, description } = useLocalSearchParams();
+
+  const productFocused: Article = {
+    image_url: image as string,
+    name: name as string,
+    price: Number(price),
+    color: color as string,
+    description: description as string,
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container}>
         <View style={styles.container}>
           <TittleDisplay tittle_name="Conversation" iscentred={false} />
-          <ChatComponent />
+          <ChatComponent article_focused={productFocused} />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -37,34 +47,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
 });
-
-//   return (
-//     <View style={styles.container}>
-//       <Text>{image}</Text>
-//       <Text>{name}</Text>
-//       <Text>{price}</Text>
-//       <Text>{color}</Text>
-//       <Text>{description}</Text>
-//       <Text>Is ready to chat</Text>
-//       <InputButtonComponent
-//         article={{
-//           id: 0 as number,
-//           name: name as string,
-//           price: Number(price),
-//           color: color as string,
-//           description: description as string,
-//           image: image as string,
-//         }}
-//       />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//     padding: 16,
-//   },
-// });
