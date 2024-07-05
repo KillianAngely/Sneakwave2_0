@@ -1,8 +1,8 @@
-import { Chat, Message, Artcile } from "../entity/chat.entity";
+import { Chat, Message, Article } from "../entity/chat.entity";
 
 const db: Array<{
   id: number;
-  artcile: Artcile;
+  artcile: Article;
   messages: Message[];
 }> = [];
 

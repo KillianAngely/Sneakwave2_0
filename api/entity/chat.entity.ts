@@ -1,8 +1,9 @@
-export type Artcile = {
+export type Article = {
   name: string;
   price: number;
   color: string;
   description: string;
+  image_url: string | null;
 };
 
 export type Message = {
@@ -13,18 +14,18 @@ export type Message = {
 
 export type ThreadConversation = {
   id: number;
-  artcile: Artcile;
+  artcile: Article;
   messages: Message[];
 };
 
 export class Chat {
-  static instantiate(id: number, artcile: Artcile, messages: Message[]) {
+  static instantiate(id: number, artcile: Article, messages: Message[]) {
     return new Chat(id, artcile, messages);
   }
 
   constructor(
     public id: number,
-    public artcile: Artcile,
+    public artcile: Article,
     public messages: Message[]
   ) {}
 

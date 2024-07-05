@@ -6,7 +6,7 @@ export interface IOllamaGateway {
 }
 
 const ollama = new Ollama({
-  host: "http://10.0.13.253:11434",
+  host: "http://192.168.1.28:11434",
 });
 export class OllamaGateway implements IOllamaGateway {
   async promptMessage(conversation: ThreadConversation): Promise<Message> {
@@ -41,17 +41,15 @@ export class OllamaGateway implements IOllamaGateway {
     if (conversation.messages.length === 1) {
       const modelfile = `
         FROM ${modelIa}
-        SYSTEM "you're a twenty-something shoe salesman and you're talking about selling this pair of shoes, a customer comes to see you and is interested in this shoe here's some info on it ${conversation.artcile} answer in 2 or 3 sentences."
+        SYSTEM "tu est un vendeur de chaussures d'une vingtaine d'années et vous parlez de vendre cette paire de chaussures, un client vient vous voir et s'intéresse à cette chaussure voici quelques informations sur elle ${conversation.artcile} répondez en 2 ou 3 phrases."
         `;
       await ollama.create({ model: modelIa, modelfile: modelfile });
-      console.log("model created");
     }
 
     const response = await ollama.chat({
       model: modelIa,
       messages: prompt,
     });
-    console.log("response");
     console.log(response);
     const Iamessage: Message = {
       user: "assistant",

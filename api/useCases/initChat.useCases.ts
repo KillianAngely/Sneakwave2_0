@@ -1,4 +1,4 @@
-import { Artcile, Chat, Message } from "../entity/chat.entity";
+import { Article, Chat, Message } from "../entity/chat.entity";
 import { IOllamaGateway } from "../gateways/Ollama.gateways";
 import { IChatAggregateRepository } from "../respository/chat.repository";
 
@@ -14,7 +14,7 @@ export class createChat<OKType, ErrorType> {
     private readonly presenter: ICreateChat<OKType, ErrorType>
   ) {}
 
-  async execute(input: string, image: string, article: Artcile) {
+  async execute(input: string, image: string, article: Article) {
     const id = Math.floor(Math.random() * 1000);
     const chat = Chat.instantiate(id, article, [
       { user: "user", text_content: input, image_url: image },

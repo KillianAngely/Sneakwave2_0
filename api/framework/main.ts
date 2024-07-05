@@ -4,7 +4,7 @@ import { ChatAggregateRepository } from "../respository/chat.repository";
 import { OllamaGateway } from "../gateways/Ollama.gateways";
 import { createChat } from "../useCases/initChat.useCases";
 import { randomChat } from "../useCases/randomChat.useCases";
-import { Message, Artcile } from "../entity/chat.entity";
+import { Message, Article } from "../entity/chat.entity";
 
 const app = express();
 app.use(bodyParser.json());
@@ -19,15 +19,26 @@ app.get("/", (req, res) => {
 
 app.post("/initChat", async (req, res) => {
   const body = req.body;
-  const article: Artcile = {
+  const article: Article = {
     name: body.name,
     price: body.price,
     color: body.color,
+    image_url: body.image_url,
     description: body.description,
   };
 
   const input: string = body.message;
   const image: string = body.image_url;
+
+  if (!image) {
+    return res.status(400).send("Invalid");
+  }
+  if (!input) {
+    return res.status(400).send("Invalid");
+  }
+  if (!article) {
+    return res.status(400).send("Invalid");
+  }
 
   await new createChat(repo, ollama, {
     async ok(response: { id: number; message: Message }) {
